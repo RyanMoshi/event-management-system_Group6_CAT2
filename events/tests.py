@@ -3,6 +3,7 @@ from django.urls import reverse
 from django.contrib.auth.models import User
 from .models import Venue
 
+
 class VenueAPITest(APITestCase):
     def setUp(self):
         self.user = User.objects.create_user(username='testuser', password='pass')
@@ -28,3 +29,5 @@ class VenueAPITest(APITestCase):
         venue_id = self.response.data['id']
         response = self.client.delete(reverse('venue-detail', args=[venue_id]))
         self.assertEqual(response.status_code, 204)
+        
+        
