@@ -1,13 +1,14 @@
-# 🎫 Event Management System - GroupX
+# 🎫 Event Management System - Group 5
 
-## 👥 Group Members
+## Group Members
 
-- Name 1 - USN1
-- Name 2 - USN2
-- Name 3 - USN3
-- Name 4 - USN4
+- Name 1 - Ryan Moshi
+- Name 2 - Caleb Kiamba
+- Name 3 - Joy Mbinya
+- Name 4 - David Luvai
+- Name 5 - Eurel Owatte
 
-## 📌 Project Overview
+## Project Overview
 
 A RESTful API for managing events, built with Django and Django REST Framework. Core features include:
 
@@ -17,7 +18,7 @@ A RESTful API for managing events, built with Django and Django REST Framework. 
 - Attendee registration
 - Ticket generation
 
-## 🧱 Models & Relationships
+## Models & Relationships
 
 | Model     | Fields                                                                 |
 |-----------|------------------------------------------------------------------------|
@@ -27,15 +28,15 @@ A RESTful API for managing events, built with Django and Django REST Framework. 
 | Attendee  | user (OneToOne), events (M2M via Ticket)                               |
 | Ticket    | attendee (FK), event (FK), purchase_date                               |
 
-## 🔄 Serializers
+## Serializers
 
 Each model has its own serializer. DRF validation is included via serializer fields.
 
-## 🔧 Views/ViewSets
+## Views/ViewSets
 
 All models are handled using `ModelViewSet` classes with `IsAuthenticatedOrReadOnly` permission to restrict writes.
 
-## 🌐 API URLs
+## API URLs
 
 | Endpoint             | Description                |
 |----------------------|----------------------------|
@@ -45,7 +46,7 @@ All models are handled using `ModelViewSet` classes with `IsAuthenticatedOrReadO
 | /api/attendees/      | CRUD for attendees         |
 | /api/tickets/        | CRUD for tickets           |
 
-## 🧪 API Testing
+## API Testing
 
 Tested using Django's `APITestCase`. Covered methods:
 
@@ -56,7 +57,7 @@ Tested using Django's `APITestCase`. Covered methods:
 
 ### Screenshots or logs included in `/tests/` folder or below
 
-## 🚀 Running the Project
+## Running the Project
 
 ```bash
 # Setup
