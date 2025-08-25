@@ -1,27 +1,32 @@
 from rest_framework import serializers
-from .models import Venue, Organizer, Event, Attendee, Ticket
+from .models import Event, Venue, Organizer, Attendee, Ticket
+from django.contrib.auth.models import User
 
 class VenueSerializer(serializers.ModelSerializer):
     class Meta:
         model = Venue
-        fields = '__all__'
+        fields = '_all_'
+
 
 class OrganizerSerializer(serializers.ModelSerializer):
     class Meta:
         model = Organizer
-        fields = '__all__'
+        fields = '_all_'
+
 
 class EventSerializer(serializers.ModelSerializer):
     class Meta:
         model = Event
-        fields = '__all__'
+        fields = '_all_'
+
 
 class AttendeeSerializer(serializers.ModelSerializer):
     class Meta:
         model = Attendee
-        fields = '__all__'
+        fields = '_all_'
+
 
 class TicketSerializer(serializers.ModelSerializer):
     class Meta:
         model = Ticket
-        fields = '__all__'
+        fields = '_all_'                
