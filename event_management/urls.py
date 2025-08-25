@@ -18,8 +18,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+from events.views import VenueViewSet, OrganizerViewSet, EventViewSet, AttendeeViewSet, TicketViewSet
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('eventapp.urls')),
+]
+    path('api/', include('events.urls')),  # include app URLs by string name
 ]
