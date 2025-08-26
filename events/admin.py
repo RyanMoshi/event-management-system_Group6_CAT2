@@ -1,6 +1,5 @@
 from django.contrib import admin
-from .models import Venue, Organizer, Event, Attendee, Registration
-
+from .models import Venue, Organizer, Event, Attendee, Registration, Ticket
 
 @admin.register(Venue)
 class VenueAdmin(admin.ModelAdmin):
@@ -15,6 +14,12 @@ class OrganizerAdmin(admin.ModelAdmin):
     search_fields = ('name', 'email')
     ordering = ('name',)
 
+@admin.register(Attendee)
+class AttendeeAdmin(admin.ModelAdmin):
+    list_display = ('first_name', 'last_name', 'email')
+    search_fields = ('first_name', 'last_name', 'email')
+    ordering = ('last_name', 'first_name')
+
 @admin.register(Event)
 class EventAdmin(admin.ModelAdmin):
     list_display = ('title', 'venue', 'organizer', 'start_date', 'end_date', 'capacity')
@@ -24,12 +29,6 @@ class EventAdmin(admin.ModelAdmin):
     ordering = ('-start_date',)
     raw_id_fields = ('venue', 'organizer')
 
-@admin.register(Attendee)
-class AttendeeAdmin(admin.ModelAdmin):
-    list_display = ('first_name', 'last_name', 'email')
-    search_fields = ('first_name', 'last_name', 'email')
-    ordering = ('last_name', 'first_name')
-
 @admin.register(Registration)
 class RegistrationAdmin(admin.ModelAdmin):
     list_display = ('attendee', 'event', 'registration_date', 'status')
@@ -38,12 +37,6 @@ class RegistrationAdmin(admin.ModelAdmin):
     date_hierarchy = 'registration_date'
     ordering = ('-registration_date',)
     raw_id_fields = ('event', 'attendee')
-# Register your models here.
-from django.contrib import admin
-from .models import Venue, Organizer, Event, Attendee, Ticket
 
-admin.site.register(Venue)
-admin.site.register(Organizer)
-admin.site.register(Event)
-admin.site.register(Attendee)
+# Register Ticket if you don't have a custom admin for it
 admin.site.register(Ticket)

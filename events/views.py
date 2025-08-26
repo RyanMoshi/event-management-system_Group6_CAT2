@@ -1,22 +1,21 @@
 from rest_framework import viewsets
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
-from .models import Venue, Organizer, Event, Attendee, Registration
-from .serializers import VenueSerializer, OrganizerSerializer, EventSerializer, AttendeeSerializer, RegistrationSerializer
+from django.http import HttpResponse
 
+from .models import Venue, Organizer, Event, Attendee, Registration, Ticket
+from .serializers import (
+    VenueSerializer,
+    OrganizerSerializer,
+    EventSerializer,
+    AttendeeSerializer,
+    RegistrationSerializer,
+    TicketSerializer,
+)
 
 class VenueViewSet(viewsets.ModelViewSet):
     queryset = Venue.objects.all()
     serializer_class = VenueSerializer
     permission_classes = [IsAuthenticatedOrReadOnly]
-# Create your views here.
-from rest_framework import viewsets
-from . import views
-from .models import Venue, Organizer, Event, Attendee, Ticket
-from .serializers import VenueSerializer, OrganizerSerializer, EventSerializer, AttendeeSerializer, TicketSerializer
-
-class VenueViewSet(viewsets.ModelViewSet):
-    queryset = Venue.objects.all()
-    serializer_class = VenueSerializer
 
 class OrganizerViewSet(viewsets.ModelViewSet):
     queryset = Organizer.objects.all()
@@ -41,3 +40,7 @@ class RegistrationViewSet(viewsets.ModelViewSet):
 class TicketViewSet(viewsets.ModelViewSet):
     queryset = Ticket.objects.all()
     serializer_class = TicketSerializer
+    permission_classes = [IsAuthenticatedOrReadOnly]
+
+def about(request):
+    return HttpResponse("This is the About Page for the Event Management System. Created by Eurell.")
